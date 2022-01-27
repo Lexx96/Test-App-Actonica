@@ -1,27 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:test_app_actonica/modules/main_screen/models/detail_info.dart';
 
 class CardWidget extends StatelessWidget {
-  final Map listProducts;
-  const CardWidget({Key? key, required this.listProducts}) : super(key: key);
+  final List<DetailInfoModel> listDetailInfo;
+  const CardWidget({Key? key, required this.listDetailInfo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: listProducts.length,
-      itemBuilder: (context, index) {
-        return Row(
-          children: [
-            SizedBox(
-              height: 100.0,
-              width: 100.0,
-              child: Image.network(listProducts['image']),
-            ),
-            Column(
-              children: [],
-            )
-          ],
-        );
-      },
+    return SizedBox(
+      height: 100.0,
+      width: 100.0,
+      child: ListView.builder(
+        itemCount: listDetailInfo.length,
+        itemBuilder: (context, index) {
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                height: 100.0,
+                width: 100.0,
+                child: Image.network(listDetailInfo[index].image),
+              ),
+              Column(
+                children: [
+                  Text(listDetailInfo[index].title),
+                  Text(listDetailInfo[index].description),
+                ],
+              )
+            ],
+          );
+        },
+      ),
     );
   }
 }
