@@ -1,14 +1,15 @@
 import 'package:test_app_actonica/modules/main_screen/models/all_products_model.dart';
 
 /// Класс состояний модуля main_screen
-class MainScreenState {
+abstract class MainScreenState {
   MainScreenState();
-  factory MainScreenState.loadedDataProducts(
-      List<AllProductsModel> allProducts) = LoadedDataProducts;
 }
 
 /// Состояние загрузки данных о товарах
-class LoadedDataProducts extends MainScreenState {
-  List<AllProductsModel> allProducts;
-  LoadedDataProducts(this.allProducts);
+class LoadingDataState extends MainScreenState {}
+
+/// Состояние загруженных данных о товарах
+class LoadedDataProductsState extends MainScreenState {
+  List<AllProductsModel> listProducts;
+  LoadedDataProductsState({required this.listProducts});
 }

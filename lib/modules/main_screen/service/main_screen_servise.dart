@@ -5,8 +5,8 @@ import 'package:test_app_actonica/modules/main_screen/repository/main_screen_rep
 /// Класс обработки данных модуля main_screen
 class MainScreenService {
   /// Получение списка всех товаров
-  List<AllProductsModel> getAllProductsService() {
-    final String _response = MainScreenRepository().getAllProductsRepository();
+  Future<List<AllProductsModel>> getAllProductsService() async {
+    final _response = await MainScreenRepository().getAllProductsRepository();
     final jsonList = jsonDecode(_response) as List<dynamic>;
     return jsonList
         .map(
