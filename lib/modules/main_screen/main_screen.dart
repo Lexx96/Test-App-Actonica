@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_actonica/modules/main_screen/widgets/card_widget.dart';
+import 'package:scrollable_list_tabview/scrollable_list_tabview.dart';
 import 'bloc/main_screen_bloc.dart';
 import 'bloc/main_screen_state.dart';
 import 'models/all_products_model.dart';
@@ -15,19 +16,6 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
   List<AllProductsModel> _listProducts = [];
-  late TabController _tabController;
-  static const List<Tab> myTabs = <Tab>[
-    Tab(text: 'Пицца'),
-    Tab(text: 'Бургеры'),
-    Tab(text: 'Закуски'),
-    Tab(text: 'Десерты'),
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: myTabs.length, vsync: this);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,33 +26,46 @@ class _MainScreenState extends State<MainScreen>
 
     return Scaffold(
       appBar: AppBar(
-        bottom: TabBar(
-          isScrollable: true,
-          controller: _tabController,
-          tabs: myTabs,
-        ),
+        title: const Text('Меню'),
       ),
       body: _state is LoadedDataProductsState
-          ? TabBarView(
-              controller: _tabController,
-              children: [
-                CardWidget(
-                  listDetailInfo: _listProducts[0].info,
-                ),
-                CardWidget(
-                  listDetailInfo: _listProducts[1].info,
-                ),
-                CardWidget(
-                  listDetailInfo: _listProducts[2].info,
-                ),
-                CardWidget(
-                  listDetailInfo: _listProducts[3].info,
-                ),
-              ],
+          ? ScrollableListTabView(
+              tabHeight: 48,
+              tabs: listWidgets(),
             )
           : const Center(
               child: CircularProgressIndicator(),
             ),
     );
+  }
+
+  List<ScrollableListTab> listWidgets() {
+    return _listProducts.map(
+      (allProductsModel) {
+        return ScrollableListTab(
+          tab: ListTab(
+            borderRadius: const BorderRadius.horizontal(
+                left: Radius.circular(10), right: Radius.circular(10)),
+            borderColor: Colors.yellow,
+            activeBackgroundColor: Colors.white,
+            inactiveBackgroundColor: Colors.white,
+            label: Tab(
+              child: Text(
+                allProductsModel.product,
+                style: const TextStyle(color: Colors.black),
+              ),
+            ),
+          ),
+          body: ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: allProductsModel.info.length,
+            itemBuilder: (_, index) => CardWidget(
+              detailInfo: allProductsModel.info[index],
+            ),
+          ),
+        );
+      },
+    ).toList();
   }
 }

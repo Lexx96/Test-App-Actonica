@@ -8,7 +8,6 @@ class MainScreenBloc extends Bloc<MainScreenEvent, MainScreenState> {
   MainScreenBloc() : super(LoadingDataState()) {
     on<LoadingDataEvent>(
       (event, emit) async {
-        // event.isLoad;
         emit(LoadingDataState());
         await Future.delayed(const Duration(seconds: 2));
         final a = await MainScreenService().getAllProductsService();
