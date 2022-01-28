@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:test_app_actonica/modules/detail_screen/detail_screen.dart';
 import 'package:test_app_actonica/modules/main_screen/models/detail_info.dart';
+import 'image_widget.dart';
 
 class CardWidget extends StatelessWidget {
   final List<DetailInfoModel> listDetailInfo;
@@ -8,7 +10,7 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _heightScreen = MediaQuery.of(context).size.height;
+    final _sizeScreen = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: ListView.builder(
@@ -17,25 +19,21 @@ class CardWidget extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.only(top: 8.0),
             child: InkWell(
-              onTap: () {
-                print('lllllllllllllll');
-              },
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => DetailScreen(
+                    infoProduct: listDetailInfo[index],
+                  ),
+                ),
+              ),
               child: SizedBox(
-                height: _heightScreen * 0.15,
+                height: _sizeScreen.height * 0.15,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      height: _heightScreen * 0.15,
-                      width: _heightScreen * 0.15,
-                      child: Image.asset(
-                        listDetailInfo[index].image,
-                        fit: BoxFit.cover,
-                      ),
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                      clipBehavior: Clip.hardEdge,
+                    ImageWidget(
+                      sizeImage: _sizeScreen.height * 0.15,
+                      imagePath: listDetailInfo[index].image,
                     ),
                     Expanded(
                       child: Padding(
