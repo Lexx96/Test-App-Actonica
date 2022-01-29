@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_actonica/utils/main_navigation/main_navigation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'modules/main_screen/bloc/main_screen_bloc.dart';
 import 'modules/main_screen/bloc/main_screen_event.dart';
 

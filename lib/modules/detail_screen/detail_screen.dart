@@ -3,21 +3,22 @@ import 'package:test_app_actonica/modules/main_screen/models/detail_info.dart';
 import 'package:test_app_actonica/modules/main_screen/widgets/image_widget.dart';
 
 /// Экран вывода детальной информации о товаре
-/// принимает экземпляр класса DetailInfoModel [infoProduct]
+/// принимает экземпляр класса DetailInfoModel [detailInfoModel]
 class DetailScreen extends StatelessWidget {
-  final DetailInfoModel infoProduct;
+  final DetailInfoModel detailInfoModel;
 
   const DetailScreen({
     Key? key,
-    required this.infoProduct,
+    required this.detailInfoModel,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final _orientation = MediaQuery.of(context).orientation;
     final _sizeScreen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Назад'),
+        title: const Text('Назад'),
       ),
       body: ListView(
         children: [
@@ -30,7 +31,7 @@ class DetailScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 30.0),
                   child: ImageWidget(
                     sizeImage: _sizeScreen.width,
-                    imagePath: infoProduct.image,
+                    imagePath: detailInfoModel.image,
                   ),
                 ),
                 Padding(
@@ -40,7 +41,7 @@ class DetailScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        infoProduct.title,
+                        detailInfoModel.title,
                         style: const TextStyle(
                             fontSize: 24.0,
                             color: Color.fromRGBO(51, 51, 51, 1)),
@@ -51,7 +52,7 @@ class DetailScreen extends StatelessWidget {
                         height: 20.0,
                       ),
                       Text(
-                        infoProduct.description,
+                        detailInfoModel.description,
                         style: const TextStyle(
                           color: Color.fromRGBO(67, 69, 89, 1),
                           fontSize: 16.0,
@@ -66,7 +67,9 @@ class DetailScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: Container(
-        height: _sizeScreen.height * 0.07,
+        height: _orientation == Orientation.portrait
+            ? _sizeScreen.height * 0.07
+            : _sizeScreen.height * 0.15,
         decoration: const BoxDecoration(
           border: Border(
             top: BorderSide(
@@ -83,7 +86,7 @@ class DetailScreen extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    '${infoProduct.price}.10 ₽',
+                    '${detailInfoModel.price}.10 ₽',
                     style: const TextStyle(
                       fontSize: 12.0,
                       color: Colors.grey,
@@ -95,7 +98,7 @@ class DetailScreen extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    '${infoProduct.price}.99 ₽',
+                    '${detailInfoModel.price}.99 ₽',
                     style: const TextStyle(
                       fontSize: 20.0,
                       color: Color.fromRGBO(255, 170, 6, 1),

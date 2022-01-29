@@ -1,6 +1,6 @@
 import 'package:test_app_actonica/modules/main_screen/models/all_products_model.dart';
 
-/// Класс состояний модуля main_screen
+/// Класс состояний для модуля main_screen
 abstract class MainScreenState {
   MainScreenState();
 }

@@ -83,12 +83,10 @@ class _ScrollableListTabViewState extends State<ScrollableListTabView> {
                 valueListenable: _index,
                 builder: (_, i, __) {
                   final selected = index == i;
-                  final borderColor = selected
-                      ? tab.activeBackgroundColor
-                      : tab.inactiveBackgroundColor;
                   return Container(
+                    width:
+                        MediaQuery.of(context).size.width / widget.tabs.length,
                     height: 32,
-                    margin: kTabMargin,
                     decoration: BoxDecoration(
                       border: Border(
                         bottom: BorderSide(
@@ -163,10 +161,11 @@ class _ScrollableListTabViewState extends State<ScrollableListTabView> {
     final tab = widget.tabs[index].tab;
     return Builder(
       builder: (_) {
-        if (tab.icon == null)
+        if (tab.icon == null) {
           return tab.label;
-        else if (!tab.showIconOnList)
+        } else if (!tab.showIconOnList) {
           return DefaultTextStyle(style: widget.style, child: tab.label);
+        }
         return DefaultTextStyle(
           style: widget.style,
           child: Row(

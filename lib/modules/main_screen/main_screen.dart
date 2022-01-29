@@ -6,7 +6,7 @@ import 'bloc/main_screen_state.dart';
 import 'models/all_products_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'widgets/scroll_widget/scrollable_list_tabviev.dart';
+import 'widgets/scroll_widget/scrollable_list_tabview.dart';
 
 /// Главный экран приложения
 class MainScreen extends StatefulWidget {
@@ -34,7 +34,7 @@ class _MainScreenState extends State<MainScreen>
       body: _state is LoadedDataProductsState
           ? ScrollableListTabView(
               tabHeight: 48,
-              tabs: listWidgets(),
+              tabs: _listWidgets(),
             )
           : const Center(
               child: CircularProgressIndicator(),
@@ -42,7 +42,8 @@ class _MainScreenState extends State<MainScreen>
     );
   }
 
-  List<ScrollableListTab> listWidgets() {
+  /// Возвращает виджеты в хедер экрана
+  List<ScrollableListTab> _listWidgets() {
     return _listProducts.map(
       (allProductsModel) {
         return ScrollableListTab(
@@ -50,16 +51,16 @@ class _MainScreenState extends State<MainScreen>
             inactiveChildColor: Colors.grey,
             activeBackgroundColor: Colors.yellow,
             label: Text(
-              allProductsModel.product,
+              allProductsModel.category,
               style: const TextStyle(fontSize: 14.0),
             ),
           ),
           body: ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: allProductsModel.info.length,
+            itemCount: allProductsModel.products.length,
             itemBuilder: (_, index) => CardWidget(
-              detailInfo: allProductsModel.info[index],
+              detailInfoModel: allProductsModel.products[index],
             ),
           ),
         );

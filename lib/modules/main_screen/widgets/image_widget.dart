@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 /// Виджет вывода изображения товара
+/// принимает размер изображения double [sizeImage],
+/// путь для фотографии String [imagePath]
 class ImageWidget extends StatelessWidget {
   final double sizeImage;
   final String imagePath;
