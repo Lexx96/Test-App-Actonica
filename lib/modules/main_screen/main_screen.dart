@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app_actonica/generated/l10n.dart';
 import 'package:test_app_actonica/modules/main_screen/widgets/card_widget.dart';
 import 'package:test_app_actonica/modules/main_screen/widgets/scroll_widget/scrollable_list_tab.dart';
 import 'bloc/main_screen_bloc.dart';
@@ -29,7 +30,7 @@ class _MainScreenState extends State<MainScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Меню'),
+        title: Text(S.of(context).menu),
       ),
       body: _state is LoadedDataProductsState
           ? ScrollableListTabView(

@@ -23,7 +23,9 @@ class ImageWidget extends StatelessWidget {
         fit: BoxFit.cover,
       ),
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+        borderRadius: BorderRadius.all(
+          Radius.circular(10),
+        ),
       ),
       clipBehavior: Clip.hardEdge,
     );

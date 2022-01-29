@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_actonica/utils/main_navigation/main_navigation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'generated/l10n.dart';
 import 'modules/main_screen/bloc/main_screen_bloc.dart';
 import 'modules/main_screen/bloc/main_screen_event.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(const Home());
@@ -19,6 +21,18 @@ class Home extends StatelessWidget {
           LoadingDataEvent(),
         ),
       child: MaterialApp(
+        localizationsDelegates: const [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
+        localeResolutionCallback: (locales, supportedLocales) {
+          if (locales == null) {
+            return supportedLocales.first;
+          }
+        },
         initialRoute: MainNavigation().initialRouteMain,
         routes: MainNavigation().routes,
       ),

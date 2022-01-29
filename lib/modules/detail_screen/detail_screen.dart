@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app_actonica/generated/l10n.dart';
 import 'package:test_app_actonica/modules/main_screen/models/detail_info.dart';
 import 'package:test_app_actonica/modules/main_screen/widgets/image_widget.dart';
 
@@ -18,7 +19,7 @@ class DetailScreen extends StatelessWidget {
     final _sizeScreen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Назад'),
+        title: Text(S.of(context).back),
       ),
       body: ListView(
         children: [
