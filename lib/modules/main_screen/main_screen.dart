@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_app_actonica/generated/l10n.dart';
 import 'package:test_app_actonica/modules/main_screen/widgets/card_widget.dart';
 import 'package:test_app_actonica/modules/main_screen/widgets/scroll_widget/scrollable_list_tab.dart';
+import 'package:test_app_actonica/utils/themes/my_light_theme.dart';
 import 'bloc/main_screen_bloc.dart';
 import 'bloc/main_screen_state.dart';
 import 'models/all_products_model.dart';
@@ -30,7 +31,10 @@ class _MainScreenState extends State<MainScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.of(context).menu),
+        title: Text(
+          S.of(context).menu,
+          style: const TextStyle(color: ColorsLightTheme.textColor),
+        ),
       ),
       body: _state is LoadedDataProductsState
           ? ScrollableListTabView(
@@ -49,11 +53,11 @@ class _MainScreenState extends State<MainScreen>
       (allProductsModel) {
         return ScrollableListTab(
           tab: ListTab(
-            inactiveChildColor: Colors.grey,
-            activeBackgroundColor: Colors.yellow,
+            inactiveChildColor: ColorsLightTheme.descriptionCardColor,
+            activeBackgroundColor: ColorsLightTheme.headerColor,
             label: Text(
               allProductsModel.category,
-              style: const TextStyle(fontSize: 14.0),
+              style: const TextStyle(fontSize: 16.0),
             ),
           ),
           body: ListView.builder(

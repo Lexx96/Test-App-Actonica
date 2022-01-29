@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_actonica/modules/detail_screen/detail_screen.dart';
 import 'package:test_app_actonica/modules/main_screen/models/detail_info.dart';
+import 'package:test_app_actonica/utils/themes/my_light_theme.dart';
 import 'image_widget.dart';
 
 /// Виджет вывода товара в виде карточки в ленте товаров
@@ -54,7 +55,9 @@ class CardWidget extends StatelessWidget {
                       Text(
                         detailInfoModel.title,
                         style: const TextStyle(
-                            fontSize: 16.0, color: Colors.black87),
+                          fontSize: 16.0,
+                          color: ColorsLightTheme.textColor,
+                        ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -62,7 +65,9 @@ class CardWidget extends StatelessWidget {
                         child: Text(
                           detailInfoModel.description,
                           style: const TextStyle(
-                              fontSize: 14.0, color: Colors.black38),
+                            fontSize: 14.0,
+                            color: ColorsLightTheme.descriptionCardColor,
+                          ),
                           overflow: TextOverflow.fade,
                         ),
                       ),
@@ -73,7 +78,7 @@ class CardWidget extends StatelessWidget {
                             '${detailInfoModel.price} ₽',
                             style: const TextStyle(
                               fontSize: 20.0,
-                              color: Color.fromRGBO(255, 170, 6, 1),
+                              color: ColorsLightTheme.priceColor,
                             ),
                           ),
                         ],

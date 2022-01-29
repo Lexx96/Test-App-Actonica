@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_app_actonica/generated/l10n.dart';
 import 'package:test_app_actonica/modules/main_screen/models/detail_info.dart';
 import 'package:test_app_actonica/modules/main_screen/widgets/image_widget.dart';
+import 'package:test_app_actonica/utils/themes/my_light_theme.dart';
 
 /// Экран вывода детальной информации о товаре
 /// принимает экземпляр класса DetailInfoModel [detailInfoModel]
@@ -19,7 +20,10 @@ class DetailScreen extends StatelessWidget {
     final _sizeScreen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.of(context).back),
+        title: Text(
+          S.of(context).back,
+          style: const TextStyle(color: ColorsLightTheme.textColor),
+        ),
       ),
       body: ListView(
         children: [
@@ -44,8 +48,9 @@ class DetailScreen extends StatelessWidget {
                       Text(
                         detailInfoModel.title,
                         style: const TextStyle(
-                            fontSize: 24.0,
-                            color: Color.fromRGBO(51, 51, 51, 1)),
+                          fontSize: 24.0,
+                          color: ColorsLightTheme.textColor,
+                        ),
                         maxLines: 2,
                         overflow: TextOverflow.clip,
                       ),
@@ -55,7 +60,7 @@ class DetailScreen extends StatelessWidget {
                       Text(
                         detailInfoModel.description,
                         style: const TextStyle(
-                          color: Color.fromRGBO(67, 69, 89, 1),
+                          color: ColorsLightTheme.descriptionCardColor,
                           fontSize: 16.0,
                         ),
                       ),
@@ -72,6 +77,7 @@ class DetailScreen extends StatelessWidget {
             ? _sizeScreen.height * 0.07
             : _sizeScreen.height * 0.15,
         decoration: const BoxDecoration(
+          color: ColorsLightTheme.navigationBarBackgroundColor,
           border: Border(
             top: BorderSide(
               width: 1.0,
@@ -101,7 +107,7 @@ class DetailScreen extends StatelessWidget {
                   Text(
                     '${detailInfoModel.price}.99 ₽',
                     style: const TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 22.0,
                       color: Color.fromRGBO(255, 170, 6, 1),
                     ),
                   ),
