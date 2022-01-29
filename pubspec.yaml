@@ -38,7 +38,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  scrollable_list_tabview: ^0.2.0-nullsafety
+  scrollable_positioned_list: ^0.2.3
   flutter_bloc: ^8.0.1
 
   # The "flutter_lints" package below contains a set of recommended lints to

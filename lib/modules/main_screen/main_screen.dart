@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_actonica/modules/main_screen/widgets/card_widget.dart';
-import 'package:scrollable_list_tabview/scrollable_list_tabview.dart';
+import 'package:test_app_actonica/modules/main_screen/widgets/scroll_widget/scrollable_list_tab.dart';
 import 'bloc/main_screen_bloc.dart';
 import 'bloc/main_screen_state.dart';
 import 'models/all_products_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'widgets/scroll_widget/scrollable_list_tabviev.dart';
+
+/// Главный экран приложения
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
@@ -44,16 +47,11 @@ class _MainScreenState extends State<MainScreen>
       (allProductsModel) {
         return ScrollableListTab(
           tab: ListTab(
-            borderRadius: const BorderRadius.horizontal(
-                left: Radius.circular(10), right: Radius.circular(10)),
-            borderColor: Colors.yellow,
-            activeBackgroundColor: Colors.white,
-            inactiveBackgroundColor: Colors.white,
-            label: Tab(
-              child: Text(
-                allProductsModel.product,
-                style: const TextStyle(color: Colors.black),
-              ),
+            inactiveChildColor: Colors.grey,
+            activeBackgroundColor: Colors.yellow,
+            label: Text(
+              allProductsModel.product,
+              style: const TextStyle(fontSize: 14.0),
             ),
           ),
           body: ListView.builder(
