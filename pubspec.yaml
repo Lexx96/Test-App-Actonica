@@ -45,6 +45,7 @@ dev_dependencies:
   scrollable_positioned_list: ^0.2.3
   flutter_bloc: ^8.0.1
   flutter_native_splash: ^2.0.1+1
+  dartdoc: ^4.1.0
 
 
 
