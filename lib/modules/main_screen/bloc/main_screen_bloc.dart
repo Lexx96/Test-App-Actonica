@@ -10,10 +10,10 @@ class MainScreenBloc extends Bloc<MainScreenEvent, MainScreenState> {
       (event, emit) async {
         emit(LoadingDataState());
         await Future.delayed(const Duration(seconds: 2));
-        final a = await MainScreenService().getAllProductsService();
+        final _listProducts = await MainScreenService().getAllProductsService();
         emit(
           LoadedDataProductsState(
-            listProducts: a,
+            listProducts: _listProducts,
           ),
         );
       },

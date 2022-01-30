@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_actonica/modules/detail_screen/detail_screen.dart';
-import 'package:test_app_actonica/modules/main_screen/models/detail_info.dart';
+import 'package:test_app_actonica/modules/main_screen/models/all_products_model.dart';
 import 'package:test_app_actonica/utils/themes/my_light_theme.dart';
 import 'image_widget.dart';
 
 /// Виджет вывода товара в виде карточки в ленте товаров
 /// принимает экземпляр класса DetailInfoModel [detailInfoModel]
 class CardWidget extends StatelessWidget {
-  final DetailInfoModel detailInfoModel;
+  final AllProductsModel detailInfoModel;
 
   const CardWidget({Key? key, required this.detailInfoModel}) : super(key: key);
 

@@ -44,6 +44,18 @@ dev_dependencies:
   adaptive_theme: ^2.2.0
   scrollable_positioned_list: ^0.2.3
   flutter_bloc: ^8.0.1
+  flutter_native_splash: ^2.0.1+1
+
+
+
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: assets/image/splash/splash_screen.png
+  color_dark: "1F2833"
+  image_dark: assets/image/splash/splash_screen.png
+  android: true
+  ios: true
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

@@ -1,22 +1,23 @@
-import 'package:test_app_actonica/modules/main_screen/models/detail_info.dart';
-
-/// Модель загрузки всех товаров
+/// Модель загрузки перечня товаров в категории
 class AllProductsModel {
-  final String category;
-  final List<DetailInfoModel> products;
+  final String title;
+  final String description;
+  final int price;
+  final String image;
 
   AllProductsModel({
-    required this.category,
-    required this.products,
+    required this.title,
+    required this.description,
+    required this.price,
+    required this.image,
   });
 
   factory AllProductsModel.fromJson(Map<String, dynamic> json) {
     return AllProductsModel(
-      category: json['category'] as String,
-      products: (json['products'] as List<dynamic>)
-          .map((dynamic e) =>
-              DetailInfoModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      title: json['title'] as String,
+      description: json['description'] as String,
+      price: json['price'] as int,
+      image: json['image'] as String,
     );
   }
 }

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_actonica/generated/l10n.dart';
-import 'package:test_app_actonica/modules/main_screen/models/detail_info.dart';
+import 'package:test_app_actonica/modules/main_screen/models/all_products_model.dart';
 import 'package:test_app_actonica/modules/main_screen/widgets/image_widget.dart';
 import 'package:test_app_actonica/utils/themes/my_light_theme.dart';
 
 /// Экран вывода детальной информации о товаре
 /// принимает экземпляр класса DetailInfoModel [detailInfoModel]
 class DetailScreen extends StatelessWidget {
-  final DetailInfoModel detailInfoModel;
+  final AllProductsModel detailInfoModel;
 
   const DetailScreen({
     Key? key,

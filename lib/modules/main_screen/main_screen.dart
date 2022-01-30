@@ -5,7 +5,7 @@ import 'package:test_app_actonica/modules/main_screen/widgets/scroll_widget/scro
 import 'package:test_app_actonica/utils/themes/my_light_theme.dart';
 import 'bloc/main_screen_bloc.dart';
 import 'bloc/main_screen_state.dart';
-import 'models/all_products_model.dart';
+import 'models/all_categories_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widgets/scroll_widget/scrollable_list_tabview.dart';
 
@@ -19,7 +19,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
-  List<AllProductsModel> _listProducts = [];
+  List<AllCategoriesModel> _listProducts = [];
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class _MainScreenState extends State<MainScreen>
             activeBackgroundColor: ColorsLightTheme.headerColor,
             label: Text(
               allProductsModel.category,
-              // style: const TextStyle(fontSize: 16.0,),
+              style: const TextStyle(fontSize: 16.0, fontFamily: 'Gabriela'),
             ),
           ),
           body: ListView.builder(

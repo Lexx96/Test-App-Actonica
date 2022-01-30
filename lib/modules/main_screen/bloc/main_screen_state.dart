@@ -1,4 +1,4 @@
-import 'package:test_app_actonica/modules/main_screen/models/all_products_model.dart';
+import 'package:test_app_actonica/modules/main_screen/models/all_categories_model.dart';
 
 /// Класс состояний для модуля main_screen
 abstract class MainScreenState {
@@ -10,6 +10,6 @@ class LoadingDataState extends MainScreenState {}
 
 /// Состояние загруженных данных о товарах
 class LoadedDataProductsState extends MainScreenState {
-  List<AllProductsModel> listProducts;
+  List<AllCategoriesModel> listProducts;
   LoadedDataProductsState({required this.listProducts});
 }
