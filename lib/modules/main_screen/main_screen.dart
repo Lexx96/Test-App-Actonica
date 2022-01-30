@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:test_app_actonica/generated/l10n.dart';
 import 'package:test_app_actonica/modules/main_screen/widgets/card_widget.dart';
 import 'package:test_app_actonica/modules/main_screen/widgets/scroll_widget/scrollable_list_tab.dart';
+import 'package:test_app_actonica/modules/main_screen/widgets/show_dialog_widget.dart';
 import 'package:test_app_actonica/utils/themes/my_light_theme.dart';
 import 'bloc/main_screen_bloc.dart';
+import 'bloc/main_screen_event.dart';
 import 'bloc/main_screen_state.dart';
 import 'models/all_categories_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,9 +26,28 @@ class _MainScreenState extends State<MainScreen>
   @override
   Widget build(BuildContext context) {
     final _state = context.watch<MainScreenBloc>().state;
-    (_state is LoadedDataProductsState)
-        ? _listProducts = _state.listProducts
-        : _listProducts;
+
+    if (_state is LoadedDataProductsState) {
+      _listProducts = _state.listProducts;
+    }
+
+    if (_state is SocketExceptionState) {
+      Future.delayed(Duration.zero).whenComplete(
+        () => _showMessage(
+          title: S.of(context).titleMessage,
+          description: S.of(context).socketErrorDescription,
+        ),
+      );
+    }
+
+    if (_state is OtherErrorState) {
+      Future.delayed(Duration.zero).whenComplete(
+        () => _showMessage(
+          title: S.of(context).titleMessage,
+          description: S.of(context).otherErrorDescription,
+        ),
+      );
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -69,5 +90,30 @@ class _MainScreenState extends State<MainScreen>
         );
       },
     ).toList();
+  }
+
+  /// Вывод оповещения для пользователя на экран
+  /// принимает заголовок String [title],
+  /// описание String [description]
+  void _showMessage({
+    required String title,
+    required String description,
+  }) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return ShowDialogWidget(
+          title: title,
+          description: description,
+          textLeftButton: S.of(context).repeat,
+          onTabLeftButton: () {
+            Navigator.of(context).pop();
+            context.read<MainScreenBloc>().add(LoadingDataEvent());
+          },
+          textRightButton: S.of(context).cancel,
+          onTabRightButton: () => Navigator.of(context).pop(),
+        );
+      },
+    );
   }
 }

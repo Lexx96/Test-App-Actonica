@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_app_actonica/modules/detail_screen/detail_screen.dart';
+import 'package:test_app_actonica/modules/main_screen/detail_screen.dart';
 import 'package:test_app_actonica/modules/main_screen/models/all_products_model.dart';
 import 'package:test_app_actonica/utils/themes/my_light_theme.dart';
 import 'image_widget.dart';

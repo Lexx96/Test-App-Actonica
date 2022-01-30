@@ -1,4 +1,9 @@
 {
   "menu" : "Меню",
-  "back" : "Назад"
+  "back" : "Назад",
+  "titleMessage" : "Ошибка",
+  "otherErrorDescription" : "Что то пошло не так!",
+  "socketErrorDescription" : "Проблемы с подключением, возможно плохое интернет соединение!",
+  "cancel" : "Отмена",
+  "repeat" : "Повторить"
 }

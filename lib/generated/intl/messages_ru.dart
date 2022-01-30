@@ -23,6 +23,13 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "back": MessageLookupByLibrary.simpleMessage("Назад"),
-        "menu": MessageLookupByLibrary.simpleMessage("Меню")
+        "cancel": MessageLookupByLibrary.simpleMessage("Отмена"),
+        "menu": MessageLookupByLibrary.simpleMessage("Меню"),
+        "otherErrorDescription":
+            MessageLookupByLibrary.simpleMessage("Что то пошло не так!"),
+        "repeat": MessageLookupByLibrary.simpleMessage("Повторить"),
+        "socketErrorDescription": MessageLookupByLibrary.simpleMessage(
+            "Проблемы с подключением, возможно плохое интернет соединение!"),
+        "titleMessage": MessageLookupByLibrary.simpleMessage("Ошибка")
       };
 }

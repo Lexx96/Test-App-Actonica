@@ -1,4 +1,9 @@
 {
   "menu" : "Menu",
-  "back" : "Back"
+  "back" : "Back",
+  "titleMessage" : "Error",
+  "otherErrorDescription" : "Something went wrong!",
+  "socketErrorDescription" : "Connection problems, possibly a bad internet connection!",
+  "cancel" : "Cancel",
+  "repeat" : "Repeat"
 }

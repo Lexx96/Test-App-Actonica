@@ -69,6 +69,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Error`
+  String get titleMessage {
+    return Intl.message(
+      'Error',
+      name: 'titleMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong!`
+  String get otherErrorDescription {
+    return Intl.message(
+      'Something went wrong!',
+      name: 'otherErrorDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Connection problems, possibly a bad internet connection!`
+  String get socketErrorDescription {
+    return Intl.message(
+      'Connection problems, possibly a bad internet connection!',
+      name: 'socketErrorDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Repeat`
+  String get repeat {
+    return Intl.message(
+      'Repeat',
+      name: 'repeat',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

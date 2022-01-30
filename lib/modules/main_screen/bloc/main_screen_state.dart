@@ -13,3 +13,9 @@ class LoadedDataProductsState extends MainScreenState {
   List<AllCategoriesModel> listProducts;
   LoadedDataProductsState({required this.listProducts});
 }
+
+/// Состояние ошибки от сервера при загрузке данных о товарах
+class SocketExceptionState extends MainScreenState {}
+
+/// Состояние прочих ошибок  при загрузке данных о товарах
+class OtherErrorState extends MainScreenState {}
