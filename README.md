@@ -1,16 +1,31 @@
-# test_app_actonica
+# test_app_Actonica
 
-A new Flutter project.
+Проект подготовлен в рамках тестового задания Actonica company, от 26.01.2022
 
-## Getting Started
+## О приложении
 
-This project is a starting point for a Flutter application.
+В директории doc сгенерирована документация.
 
-A few resources to get you started if this is your first Flutter project:
+Основано на паттерне проектирования BLoC с управлением состояниями flutter_bloc.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Содержит следующие модули:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Главный экран
+- Экран детальной информации
+
+## Использованы следующие пакеты
+
+| Название пакета                                           | Версия        | Описание                                                 |
+| --------------------------------------------------------- | ------------- | -------------------------------------------------------- |
+| [flutter_bloc][flutter_bloc]                              | ^8.0.1        | Виджеты, упрощающие интеграцию блоков и кубитов          |                                 |
+| [scrollable_positioned_list][scrollable_positioned_list]  | ^0.2.3        | Позволяет прокручивать до определенного элемента в списке|
+| [flutter_native_splash][flutter_native_splash]            | ^2.0.1+1      | Превью загрузки приложения                               |
+| [adaptive_theme][adaptive_theme]                          | ^2.2.0        | Адаптивные темы                                          |
+| [intl][intl]                                              | ^0.17.0       | Добавление языковых пакетов                              |
+
+[flutter_bloc]: <https://pub.dev/packages/flutter_bloc>
+[scrollable_positioned_list]: <https://pub.dev/packages/scrollable_positioned_list>
+[flutter_native_splash]: <https://pub.dev/packages/flutter_native_splash>
+[adaptive_theme]: <https://pub.dev/packages/adaptive_theme>
+[intl]: <https://pub.dev/packages/intl>
+
