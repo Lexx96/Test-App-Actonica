@@ -76,7 +76,10 @@ class _MainScreenState extends State<MainScreen>
             activeBackgroundColor: ColorsLightTheme.headerColor,
             label: Text(
               allProductsModel.category,
-              style: const TextStyle(fontSize: 16.0, fontFamily: 'Gabriela'),
+              style: const TextStyle(
+                fontSize: 16.0,
+                fontFamily: 'Gabriela',
+              ),
             ),
           ),
           body: ListView.builder(

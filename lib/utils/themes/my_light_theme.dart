@@ -22,7 +22,7 @@ final myLightTheme = ThemeData.light().copyWith(
     elevation: 0,
     titleTextStyle: TextStyle(
       fontSize: 24.0,
-      color: ColorsLightTheme.headerColor,
+      color: ColorsLightTheme.textColor,
       fontFamily: 'Gabriela',
     ),
   ),
