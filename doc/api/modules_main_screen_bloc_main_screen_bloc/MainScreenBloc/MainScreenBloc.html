@@ -62,14 +62,21 @@
   <pre class="language-dart"><code class="language-dart">MainScreenBloc() : super(LoadingDataState()) {
   on&lt;LoadingDataEvent&gt;(
     (event, emit) async {
-      emit(LoadingDataState());
-      await Future.delayed(const Duration(seconds: 2));
-      final _listProducts = await MainScreenService().getAllProductsService();
-      emit(
-        LoadedDataProductsState(
-          listProducts: _listProducts,
-        ),
-      );
+      try {
+        emit(LoadingDataState());
+        await Future.delayed(const Duration(seconds: 2));
+        final _listProducts =
+            await MainScreenService().getAllProductsService();
+        emit(
+          LoadedDataProductsState(
+            listProducts: _listProducts,
+          ),
+        );
+      } on SocketException {
+        emit(SocketExceptionState());
+      } catch (_) {
+        emit(OtherErrorState());
+      }
     },
   );
 }</code></pre>

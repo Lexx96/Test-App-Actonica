@@ -68,18 +68,12 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;List&lt;AllCategoriesModel&gt;&gt; getAllProductsService() async {
-  try {
-    final _response = await MainScreenRepository().getAllProductsRepository();
-    final jsonList = jsonDecode(_response) as List&lt;dynamic&gt;;
-    return jsonList
-        .map((dynamic e) =&gt;
-            AllCategoriesModel.fromJson(e as Map&lt;String, dynamic&gt;))
-        .toList();
-  } on SocketException {
-    throw ApiClientExceptions(ApiClientExceptionsType.network);
-  } catch (_) {
-    throw ApiClientExceptions(ApiClientExceptionsType.other);
-  }
+  final _response = await MainScreenRepository().getAllProductsRepository();
+  final jsonList = jsonDecode(_response) as List&lt;dynamic&gt;;
+  return jsonList
+      .map((dynamic e) =&gt;
+          AllCategoriesModel.fromJson(e as Map&lt;String, dynamic&gt;))
+      .toList();
 }</code></pre>
 </section>
 
