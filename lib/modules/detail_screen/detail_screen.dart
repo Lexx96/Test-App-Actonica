@@ -59,10 +59,6 @@ class DetailScreen extends StatelessWidget {
                       ),
                       Text(
                         detailInfoModel.description,
-                        style: const TextStyle(
-                          color: ColorsLightTheme.descriptionCardColor,
-                          fontSize: 16.0,
-                        ),
                       ),
                     ],
                   ),
@@ -107,7 +103,7 @@ class DetailScreen extends StatelessWidget {
                   Text(
                     '${detailInfoModel.price}.99 ₽',
                     style: const TextStyle(
-                      fontSize: 22.0,
+                      fontSize: 21.0,
                       color: Color.fromRGBO(255, 170, 6, 1),
                     ),
                   ),

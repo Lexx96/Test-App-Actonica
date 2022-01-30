@@ -64,10 +64,6 @@ class CardWidget extends StatelessWidget {
                       Expanded(
                         child: Text(
                           detailInfoModel.description,
-                          style: const TextStyle(
-                            fontSize: 14.0,
-                            color: ColorsLightTheme.descriptionCardColor,
-                          ),
                           overflow: TextOverflow.fade,
                         ),
                       ),

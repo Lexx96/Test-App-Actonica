@@ -7,7 +7,6 @@ import 'bloc/main_screen_bloc.dart';
 import 'bloc/main_screen_state.dart';
 import 'models/all_products_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'widgets/scroll_widget/scrollable_list_tabview.dart';
 
 /// Главный экран приложения
@@ -33,7 +32,6 @@ class _MainScreenState extends State<MainScreen>
       appBar: AppBar(
         title: Text(
           S.of(context).menu,
-          style: const TextStyle(color: ColorsLightTheme.textColor),
         ),
       ),
       body: _state is LoadedDataProductsState
@@ -57,7 +55,7 @@ class _MainScreenState extends State<MainScreen>
             activeBackgroundColor: ColorsLightTheme.headerColor,
             label: Text(
               allProductsModel.category,
-              style: const TextStyle(fontSize: 16.0),
+              // style: const TextStyle(fontSize: 16.0,),
             ),
           ),
           body: ListView.builder(

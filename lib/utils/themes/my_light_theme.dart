@@ -20,5 +20,16 @@ final myLightTheme = ThemeData.light().copyWith(
     foregroundColor: ColorsLightTheme.headerColor,
     backgroundColor: ColorsLightTheme.scaffoldBackgroundColor,
     elevation: 0,
+    titleTextStyle: TextStyle(
+      fontSize: 24.0,
+      color: ColorsLightTheme.headerColor,
+      fontFamily: 'Gabriela',
+    ),
+  ),
+  textTheme: const TextTheme(
+    bodyText2: TextStyle(
+      color: ColorsLightTheme.descriptionCardColor,
+      fontFamily: 'Gabriela',
+    ), // основной
   ),
 );

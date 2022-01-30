@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_app_actonica/modules/main_screen/service/main_screen_servise.dart';
+import 'package:test_app_actonica/modules/main_screen/service/main_screen_serviсe.dart';
 import 'main_screen_event.dart';
 import 'main_screen_state.dart';
 
